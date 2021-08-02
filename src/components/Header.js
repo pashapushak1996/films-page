@@ -43,6 +43,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   height: 70px;
+  padding: 0px 36px;
   background-color: #090b13;
 `;
 
