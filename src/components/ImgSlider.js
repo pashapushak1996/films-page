@@ -13,7 +13,7 @@ const ImgSlider = () => {
         slidesToScroll: 1,
         autoPlay: true
     }
-    const IMAGES = '/images/'
+    const IMAGES = '/images/';
 
     let imgPathArray = [
         `${ IMAGES }/slider-badag.jpg`,
@@ -23,7 +23,7 @@ const ImgSlider = () => {
 
     return (
         <Carousel { ...settings }>
-            { imgPathArray.map((imgPath) => <Wrap>
+            { imgPathArray.map((imgPath, index) => <Wrap key={ index }>
                 <img src={ imgPath } alt=""/>
             </Wrap>) }
         </Carousel>
