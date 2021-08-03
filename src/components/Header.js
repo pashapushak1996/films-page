@@ -5,7 +5,7 @@ const Header = () => {
         <Nav>
             <Logo src={ '/images/logo.svg' }/>
             <NavMenu>
-                <a href={ `#` }>
+                <a>
                     <img src={ `/images/home-icon.svg` } alt={ 'home' }/>
                     <span>HOME</span>
                 </a>
@@ -13,7 +13,7 @@ const Header = () => {
                     <img src={ `/images/search-icon.svg` } alt={ 'search' }/>
                     <span>SEARCH</span>
                 </a>
-                <a href={ `#` }>
+                <a>
                     <img src={ `/images/watchlist-icon.svg` } alt={ 'watchlist' }/>
                     <span>WATCH</span>
                 </a>
@@ -21,11 +21,11 @@ const Header = () => {
                     <img src={ `/images/original-icon.svg` } alt={ 'originals' }/>
                     <span>ORIGINALS</span>
                 </a>
-                <a href={ `#` }>
+                <a>
                     <img src={ `/images/movie-icon.svg` } alt={ 'movies' }/>
                     <span>MOVIES</span>
                 </a>
-                <a href={ `#` }>
+                <a>
                     <img src={ `/images/series-icon.svg` } alt={ 'series' }/>
                     <span>SERIES</span>
                 </a>
