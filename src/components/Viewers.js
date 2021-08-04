@@ -52,7 +52,7 @@ const Container = styled.div`
   margin-top: 50px;
   display: grid;
   grid-gap: 25px;
-  grid-template-columns: repeat(5, 1fr)`;
+  grid-template-columns: repeat(5, 1fr);`;
 
 const Wrap = styled.div`
   position: relative;

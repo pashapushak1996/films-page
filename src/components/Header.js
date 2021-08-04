@@ -1,34 +1,35 @@
 import styled from 'styled-components/macro';
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
         <Nav>
             <Logo src={ '/images/logo.svg' }/>
             <NavMenu>
-                <a>
+                <Link to={ `/` }>
                     <img src={ `/images/home-icon.svg` } alt={ 'home' }/>
                     <span>HOME</span>
-                </a>
-                <a>
+                </Link>
+                <Link to={ `/search` }>
                     <img src={ `/images/search-icon.svg` } alt={ 'search' }/>
                     <span>SEARCH</span>
-                </a>
-                <a>
+                </Link>
+                <Link to={ `/watchlist` }>
                     <img src={ `/images/watchlist-icon.svg` } alt={ 'watchlist' }/>
                     <span>WATCH</span>
-                </a>
-                <a>
+                </Link>
+                <Link to={ `/originals` }>
                     <img src={ `/images/original-icon.svg` } alt={ 'originals' }/>
                     <span>ORIGINALS</span>
-                </a>
-                <a>
+                </Link>
+                <Link to={ `/movie` }>
                     <img src={ `/images/movie-icon.svg` } alt={ 'movies' }/>
                     <span>MOVIES</span>
-                </a>
-                <a>
+                </Link>
+                <Link to={ `/series` }>
                     <img src={ `/images/series-icon.svg` } alt={ 'series' }/>
                     <span>SERIES</span>
-                </a>
+                </Link>
             </NavMenu>
             <UserImg src={ `/images/userImage.jpg` }/>
         </Nav>
@@ -62,6 +63,7 @@ const NavMenu = styled.div`
     display: flex;
     align-items: center;
     padding: 0 12px;
+    text-decoration: none;
   }
 
   img {
