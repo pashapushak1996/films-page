@@ -1,14 +1,21 @@
 import React from "react";
 import styled from "styled-components/macro";
+import {useSelector} from "react-redux";
+import {selectMovie} from "../features/movie/movieSlice";
 
-const MovieDetails = ({bg}) => {
+
+const MovieDetails = () => {
+
+    const movie = useSelector(selectMovie);
+    console.log(movie);
+
     return (
         <Container>
             <Background>
-                <img src="images/login-background.jpg" alt=""/>
+                <img src={ movie.backgroundImg } alt=""/>
             </Background>
             <Content>
-                <MovieTitle>Bao</MovieTitle>
+                <MovieTitleImg src={ movie.titleImg } alt={ movie.title }/>
                 <ButtonsGroup>
                     <PlayBtn>
                         <img src="/images/play-icon-black.png" alt=""/>
@@ -23,10 +30,8 @@ const MovieDetails = ({bg}) => {
                         <img src="/images/group-icon.png" alt=""/>
                     </GroupBtn>
                 </ButtonsGroup>
-                <MovieSubtitle>2018•7m•Family,Kids,Fantasy</MovieSubtitle>
-                <MovieDescription>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, magnam repellendus?
-                    Alias aperiam consectetur debitis delectus dolores eius facilis id illo illum itaque quam quis sed
-                    sequi sint soluta, veritatis!</MovieDescription>
+                <MovieSubtitle>{ movie.subTitle }</MovieSubtitle>
+                <MovieDescription>{ movie.description }</MovieDescription>
             </Content>
         </Container>
     );
@@ -64,7 +69,9 @@ const Content = styled.div`
   flex-direction: column;
 `;
 
-const MovieTitle = styled.div`font-size: 35px;`;
+const MovieTitleImg = styled.img`
+  width: 40%;
+`;
 
 const ButtonsGroup = styled.div`
   display: flex;
@@ -81,6 +88,7 @@ const PlayBtn = styled.div`
   color: black;
   background-color: rgba(249, 249, 249, 1);
   border-radius: 5px;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(249, 249, 249, 0.8);
@@ -102,6 +110,7 @@ const AddBtn = styled.div`
   align-items: center;
   font-size: 25px;
   background-color: rgba(10, 10, 10, 0.5);
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(249, 249, 249, 0.8);

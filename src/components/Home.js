@@ -4,16 +4,19 @@ import ImgSlider from "./ImgSlider";
 import Viewers from "./Viewers";
 import Movies from "./Movies";
 import db from '../firebase';
+import {useDispatch} from "react-redux";
+import {setMovies} from "../features/movie/movieSlice";
 
 const Home = () => {
+    const dispatch = useDispatch();
     useEffect(() => {
-        db.collection("movies").onSnapshot((snapshot) => {
-            const moviesList = snapshot.docs.map((doc) => {
-                return {id: doc.id, ...doc.data()};
-            });
-            console.log(moviesList);
-        })
-    }, [])
+        db.collection('movies').onSnapshot((snapshot) => {
+            const moviesFromDB = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+            console.log(moviesFromDB);
+            dispatch(setMovies(moviesFromDB));
+        });
+    });
+
 
     return (
         <Container>
@@ -34,7 +37,7 @@ const Container = styled.main`
 
   &:before {
     content: "";
-    background: url("images/home-background.png") center center / cover no-repeat fixed;
+    background: url("/images/home-background.png") center center / cover no-repeat fixed;
     position: absolute;
     top: 0;
     left: 0;
