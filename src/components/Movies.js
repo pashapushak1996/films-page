@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components/macro";
-import {useDispatch, useSelector} from "react-redux";
-import {selectMovies, setMovie} from "../features/movie/movieSlice";
+import {useSelector} from "react-redux";
+import {selectMovies} from "../features/movie/movieSlice";
 import {Link} from "react-router-dom";
 
 const Movies = () => {
+
     const movies = useSelector(selectMovies);
-    const dispatch = useDispatch();
+
     return (
         <Container>
             <h4>Recommended for You</h4>
             <Content>
                 { movies && movies.map((movie) =>
-                    <Wrap onClick={ () => dispatch(setMovie(movie)) } key={ movie.id }>
+                    <Wrap key={ movie.id }>
                         <Link to={ `/movie/${ movie.id }` }>
                             <img src={ movie.cardImg } alt={ movie.title }/>
                         </Link>

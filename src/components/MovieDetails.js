@@ -1,15 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components/macro";
-import {useSelector} from "react-redux";
-import {selectMovie} from "../features/movie/movieSlice";
-
+import {useParams} from 'react-router-dom';
+import db from "../firebase";
 
 const MovieDetails = () => {
 
-    const movie = useSelector(selectMovie);
-    console.log(movie);
+    const {id} = useParams();
+
+    const [movie, setMovie] = useState(null);
+
+    useEffect(() => {
+        db.collection('movies')
+            .doc(id)
+            .get()
+            .then(doc => setMovie(doc.data()));
+    }, []);
+
 
     return (
+        movie &&
         <Container>
             <Background>
                 <img src={ movie.backgroundImg } alt=""/>
